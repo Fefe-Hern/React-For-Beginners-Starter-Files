@@ -9,7 +9,7 @@ export class StorePicker extends React.Component {
         event.preventDefault();
 
         // 2. Get text from input
-        const storeName = this.myInput.value.value;
+        const storeName = this.myInput.current.value;
 
         // 3. Change page to /store/:input-name
         this.props.history.push(`/store/${storeName}`);

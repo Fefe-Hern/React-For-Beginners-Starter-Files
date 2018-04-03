@@ -11,8 +11,12 @@ class Order extends React.Component {
                 <li>
                     Sorry, {fish ? fish.name : 'fish'} is no longer available
                 </li>
-            )
+            );
         }
+
+        return (
+            <li>{fish ? fish.name : 'fish'}</li>
+        );
     }
 
     render() {
