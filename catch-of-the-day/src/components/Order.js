@@ -8,14 +8,17 @@ class Order extends React.Component {
         const isAvailable = fish.status === 'available';
         if(!isAvailable) {
             return (
-                <li>
+                <li key={key}>
                     Sorry, {fish ? fish.name : 'fish'} is no longer available
                 </li>
             );
         }
 
         return (
-            <li>{fish ? fish.name : 'fish'}</li>
+            <li key={key}>
+                {count} lbs {fish ? fish.name : 'fish'}
+                {formatPrice(count * fish.price)}
+            </li>
         );
     }
 
@@ -36,11 +39,12 @@ class Order extends React.Component {
         return (
             <div className="order-wrap">
                 <h2>Order</h2>
-                <ul>
+                <ul className="order">
                     {orderIds.map(this.renderOrder)}
                 </ul>
                 
                 <div className="total">
+                    Total: 
                     <strong>{formatPrice(total)}</strong>
                 </div>
             </div>
